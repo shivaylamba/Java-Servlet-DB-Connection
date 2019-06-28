@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>AJAX with Servlets using AngularJS</title>
+ <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="js/angular.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script type="text/javascript" src="js/controller/myController.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="myController">
+        
+           <!-- <button ng-click="getDataFromServer()">Fetch data from server</button>
+           <p>First Name : {{person.firstName}}</p>
+           <p>Last Name : {{person.lastName}}</p>
+           <label for=""></label>
+            <input ng-model="fields.fname" name="" type=""/>
+            <br>
+            <input ng-model="fields.lname" />
+            <button ng-click="getMessage()">Send</button> -->
+          <form name="myForm" action = "javaAngularJS" novalidate>
+
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text"class="form-control" id="name" placeholder="Enter username" name="user" ng-model="user" required>
+        <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+        <span ng-show="myForm.user.$error.required">Username is required.</span>
+        </span>
+    </div>
+
+
+    <div class="form-group">
+            <label for="email">Email:</label>
+            <!-- <input type="email" class="form-control" id="email" placeholder="Enter email" name="email"> -->
+            <input type="email"class="form-control" id="email" placeholder="Enter email" name="email" ng-model="email" required>
+            <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+            <span ng-show="myForm.email.$error.required">Email is required.</span>
+            <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+            </span>    
+    </div>
+
+
+<button type="submit" class="btn btn-default"ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
+myForm.email.$dirty && myForm.email.$invalid">Submit</button>
+
+</form>  
+     
+     
+       
+<p>Message from servlet: {{message}}</p>
+</div>
+
+</body>
+</html>
